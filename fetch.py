@@ -7,6 +7,8 @@ from repo import IngressoApiRepository
 ingresso_api = IngressoApiRepository()
 cinemas = ingresso_api.get_theaters()
 
+print(cinemas)
+
 filmes = []
 
 for cinema in cinemas['items']:

@@ -1,6 +1,6 @@
 import requests
 import json
-import os
+import urllib.request
 
 
 class IngressoApiRepository:
@@ -10,8 +10,11 @@ class IngressoApiRepository:
         self.partnership = 'dtfilmes'
 
     def request_dados(self, route):
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                          'Chrome/102.0.0.0 Safari/537.36'}
 
-        res = requests.get(self.url + route)
+        res = requests.get(self.url + route, headers=headers)
 
         if res.ok != True:
             return json.loads('{}')
